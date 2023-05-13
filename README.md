@@ -194,6 +194,5 @@ The `to-string` library is developed and maintained by [Effectra](https://effect
 
 For any questions or issues, please [open an issue](https://github.com/effectra/to-string/issues) on GitHub.
 
-```
 
 Feel free to modify the README file according to your specific library details, such as author information, additional sections, or formatting preferences.
