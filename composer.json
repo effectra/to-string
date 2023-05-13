@@ -1,0 +1,21 @@
+{
+    "name": "effectra/to-string",
+    "description": "The Effectra To-String package.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Effectra\\ToString\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mohammed Taha",
+            "email": "bmt.mohammedtaha@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2"
+    },
+    "minimum-stability": "dev"
+}

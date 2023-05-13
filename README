@@ -1,0 +1,133 @@
+# to-string PHP Library
+
+`to-string` is a PHP library that provides various utility classes for string manipulation and conversion. It offers functionality to convert text case, strip tags, generate slugs, format arrays, and handle date/time values.
+
+## Installation
+
+You can install the `to-string` library via Composer. Run the following command in your project directory:
+
+```
+composer require effectra/to-string
+```
+
+## Usage
+
+### TextToString
+
+#### `toUppercase(string $text): string`
+
+Converts a string to uppercase.
+
+```php
+use Effectra\ToString\TextToString;
+
+$textToString = new TextToString();
+$result = $textToString->toUppercase('Hello, World!');
+echo $result; // Output: HELLO, WORLD!
+```
+
+#### `toLowercase(string $text): string`
+
+Converts a string to lowercase.
+
+```php
+use Effectra\ToString\TextToString;
+
+$textToString = new TextToString();
+$result = $textToString->toLowercase('Hello, World!');
+echo $result; // Output: hello, world!
+```
+
+#### `strip(string $text): string`
+
+Strips HTML and PHP tags from a string.
+
+```php
+use Effectra\ToString\TextToString;
+
+$textToString = new TextToString();
+$result = $textToString->strip('<p>Hello, <b>World!</b></p>');
+echo $result; // Output: Hello, World!
+```
+
+#### `nameVar($variable): string`
+
+Extracts the variable name from the caller's context.
+
+```php
+use Effectra\ToString\TextToString;
+
+$textToString = new TextToString();
+$myVariable = 'Hello, World!';
+$result = $textToString->nameVar($myVariable);
+echo $result; // Output: myVariable
+```
+
+#### `textToSlug($text): string`
+
+Converts a string to a URL-friendly slug.
+
+```php
+use Effectra\ToString\TextToString;
+
+$textToString = new TextToString();
+$result = $textToString->textToSlug('Hello, World!');
+echo $result; // Output: hello-world
+```
+
+#### `slugToText($slug): string`
+
+Converts a URL-friendly slug back to readable text.
+
+```php
+use Effectra\ToString\TextToString;
+
+$textToString = new TextToString();
+$result = $textToString->slugToText('hello-world');
+echo $result; // Output: Hello World
+```
+
+#### `generateRandomText($length): string`
+
+Generates a random text of specified length.
+
+```php
+use Effectra\ToString\TextToString;
+
+$textToString = new TextToString();
+$result = $textToString->generateRandomText(8);
+echo $result; // Output: C4rN1QX7
+```
+
+### ArrayToString
+
+#### `array(array $array): string`
+
+Converts an array to a string representation.
+
+```php
+use Effectra\ToString\ArrayToString;
+
+$result = ArrayToString::array(['apple', 'banana', 'cherry']);
+echo $result; // Output: ['apple', 'banana', 'cherry']
+```
+
+#### `arrayToText(array $data, string $separator = ','): string`
+
+Converts an array to a string by joining its elements with a separator.
+
+```php
+use Effectra\ToString\ArrayToString;
+
+$result = ArrayToString::arrayToText(['apple', 'banana', 'cherry']);
+echo $result; // Output: apple,banana,cherry
+```
+
+#### `arrayToSlug(array $data): string`
+
+Converts an array to a URL-friendly slug by joining its elements with a separator.
+
+```php
+use Effectra\ToString\ArrayToString;
+
+$arrayToString = new
