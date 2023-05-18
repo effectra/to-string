@@ -114,4 +114,33 @@ class TextToString
 
         return $randomText;
     }
+
+    /**
+     * Converts a hyphen-separated text to camel case.
+     *
+     * @param string $text The text to be converted.
+     * @return string The converted camel case text.
+     */
+    public function hyphenToCamelCase(string $text): string
+    {
+        $words = explode('_', $text);
+        $convertedWords = array_map('ucfirst', $words);
+        $convertedText = lcfirst(implode('', $convertedWords));
+
+        return $convertedText;
+    }
+    /**
+     * Converts a dash-separated text to camel case.
+     *
+     * @param string $text The text to be converted.
+     * @return string The converted camel case text.
+     */
+    function dashToCamelCase(string $text): string
+    {
+        $words = explode('-', $text);
+        $convertedWords = array_map('ucfirst', $words);
+        $convertedText = lcfirst(implode('', $convertedWords));
+
+        return $convertedText;
+    }
 }
