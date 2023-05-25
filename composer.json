@@ -11,11 +11,11 @@
     "authors": [
         {
             "name": "Mohammed Taha",
-            "email": "bmt.mohammedtaha@gmail.com"
+            "email": "info@mohammedtaha.net"
         }
     ],
     "require": {
         "php": "^8.0.2"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
