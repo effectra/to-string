@@ -1,6 +1,6 @@
 {
     "name": "effectra/to-string",
-    "description": "The Effectra To-String package.",
+    "description": "The Effectra ToString package.",
     "type": "library",
     "license": "MIT",
     "autoload": {
