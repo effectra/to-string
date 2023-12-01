@@ -12,7 +12,7 @@ class TextToString
      * @param string $text The input string.
      * @return string The string converted to uppercase.
      */
-    public function toUppercase(string $text): string
+    public static function toUppercase(string $text): string
     {
         return strtoupper($text);
     }
@@ -23,7 +23,7 @@ class TextToString
      * @param string $text The input string.
      * @return string The string converted to lowercase.
      */
-    public function toLowercase(string $text): string
+    public static function toLowercase(string $text): string
     {
         return strtolower($text);
     }
@@ -34,7 +34,7 @@ class TextToString
      * @param string $text The input string.
      * @return string The string with tags stripped.
      */
-    public function strip(string $text): string
+    public static function strip(string $text): string
     {
         return strip_tags($text);
     }
@@ -45,7 +45,7 @@ class TextToString
      * @param mixed $variable The variable to get the name from.
      * @return string The name of the variable.
      */
-    public function nameVar($variable): string
+    public static function nameVar($variable): string
     {
         $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $callerLine = $backtrace[1]['line'];
@@ -65,7 +65,7 @@ class TextToString
      * @param string $text The input string.
      * @return string The URL-friendly slug.
      */
-    public function textToSlug($text): string
+    public static function textToSlug($text): string
     {
         // Convert the text to lowercase
         $text = strtolower($text);
@@ -79,13 +79,36 @@ class TextToString
         return $text;
     }
 
+    public static function snakeToCamel(string $string): string
+    {
+        $words = explode('_', $string);
+        $camelWords = array_map('ucfirst', $words);
+        return lcfirst(implode('', $camelWords));
+    }
+
+    /**
+     * Convert a CamelCase string to snake_case.
+     *
+     * @param string $inputString The CamelCase string.
+     *
+     * @return string The snake_case string.
+     */
+    public static function camelToSnake(string $inputString): string
+    {
+        $outputString = preg_replace_callback('/([a-z])([A-Z])/', function ($matches) {
+            return $matches[1] . '_' . strtolower($matches[2]);
+        }, $inputString);
+
+        return $outputString;
+    }
+
     /**
      * Converts a URL-friendly slug back to a readable text.
      *
      * @param string $slug The input slug.
      * @return string The readable text.
      */
-    public function slugToText($slug): string
+    public static function slugToText($slug): string
     {
         // Replace dashes with spaces
         $text = str_replace('-', ' ', $slug);
@@ -102,7 +125,7 @@ class TextToString
      * @param int $length The length of the random text.
      * @return string The generated random text.
      */
-    public function generateRandomText($length): string
+    public static function generateRandomText($length): string
     {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $randomText = '';
@@ -121,7 +144,7 @@ class TextToString
      * @param string $text The text to be converted.
      * @return string The converted camel case text.
      */
-    public function hyphenToCamelCase(string $text): string
+    public static function hyphenToCamelCase(string $text): string
     {
         $words = explode('_', $text);
         $convertedWords = array_map('ucfirst', $words);

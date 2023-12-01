@@ -12,7 +12,7 @@ class DateToString
      * @param int $time The time value in seconds.
      * @return string The formatted time string (HH:MM:SS).
      */
-    public function formatTime(int $time): string
+    public static function formatTime(int $time): string
     {
         $hours = gmdate('H', $time);
         $minutes = gmdate('i', $time);
@@ -27,7 +27,7 @@ class DateToString
      * @param int $timestamp The timestamp value.
      * @return string The formatted date string (YYYY-MM-DD).
      */
-    public function formatDate(int $timestamp): string
+    public static function formatDate(int $timestamp): string
     {
         return date('Y-m-d', $timestamp);
     }

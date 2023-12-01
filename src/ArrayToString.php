@@ -45,7 +45,7 @@ class ArrayToString
      * @param array $data The input array.
      * @return string The URL-friendly slug.
      */
-    public function arrayToSlug(array $data): string
+    public static function arrayToSlug(array $data): string
     {
         return static::arrayToText($data, '-');
     }
