@@ -12,11 +12,7 @@ class TextToString
      * @param string $text The input string.
      * @return string The string converted to uppercase.
      */
-<<<<<<< HEAD
-    public static function toUppercase(string $text): string
-=======
     public function toUppercase(string $text): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     {
         return strtoupper($text);
     }
@@ -27,11 +23,7 @@ class TextToString
      * @param string $text The input string.
      * @return string The string converted to lowercase.
      */
-<<<<<<< HEAD
-    public static function toLowercase(string $text): string
-=======
     public function toLowercase(string $text): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     {
         return strtolower($text);
     }
@@ -42,11 +34,7 @@ class TextToString
      * @param string $text The input string.
      * @return string The string with tags stripped.
      */
-<<<<<<< HEAD
-    public static function strip(string $text): string
-=======
     public function strip(string $text): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     {
         return strip_tags($text);
     }
@@ -57,11 +45,7 @@ class TextToString
      * @param mixed $variable The variable to get the name from.
      * @return string The name of the variable.
      */
-<<<<<<< HEAD
-    public static function nameVar($variable): string
-=======
     public function nameVar($variable): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     {
         $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $callerLine = $backtrace[1]['line'];
@@ -79,27 +63,30 @@ class TextToString
      * Converts a string to a URL-friendly slug.
      *
      * @param string $text The input string.
+     * @param string $separator separator symbol.
      * @return string The URL-friendly slug.
      */
-<<<<<<< HEAD
-    public static function textToSlug($text): string
-=======
-    public function textToSlug($text): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
+    public function textToSlug(string $text, string $separator): string
     {
         // Convert the text to lowercase
         $text = strtolower($text);
 
         // Replace spaces and special characters with dashes
-        $text = preg_replace('/[^a-z0-9]+/', '-', $text);
+        $text = preg_replace('/[^a-z0-9]+/', $separator, $text);
 
         // Remove leading and trailing dashes
-        $text = trim($text, '-');
+        $text = trim($text, $separator);
 
         return $text;
     }
 
-<<<<<<< HEAD
+    /**
+     * Converts a string to a camel case
+     * 
+     * @param string $string
+     * @return string
+     */
+
     public static function snakeToCamel(string $string): string
     {
         $words = explode('_', $string);
@@ -123,19 +110,13 @@ class TextToString
         return $outputString;
     }
 
-=======
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     /**
      * Converts a URL-friendly slug back to a readable text.
      *
      * @param string $slug The input slug.
      * @return string The readable text.
      */
-<<<<<<< HEAD
-    public static function slugToText($slug): string
-=======
     public function slugToText($slug): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     {
         // Replace dashes with spaces
         $text = str_replace('-', ' ', $slug);
@@ -152,11 +133,7 @@ class TextToString
      * @param int $length The length of the random text.
      * @return string The generated random text.
      */
-<<<<<<< HEAD
-    public static function generateRandomText($length): string
-=======
     public function generateRandomText($length): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $randomText = '';
@@ -168,7 +145,6 @@ class TextToString
 
         return $randomText;
     }
-<<<<<<< HEAD
 
     /**
      * Converts a hyphen-separated text to camel case.
@@ -198,6 +174,4 @@ class TextToString
 
         return $convertedText;
     }
-=======
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
 }

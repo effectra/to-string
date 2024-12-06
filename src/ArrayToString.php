@@ -12,7 +12,7 @@ class ArrayToString
      * @param array $array The input array.
      * @return string The string representation of the array.
      */
-    public static function array(array $array): string
+    public function array(array $array): string
     {
         if (empty($array)) {
             return '[]';
@@ -34,7 +34,7 @@ class ArrayToString
      * @param string $separator The separator used to join the array elements.
      * @return string The resulting string.
      */
-    public static function arrayToText(array $data, string $separator = ','): string
+    public function arrayToText(array $data, string $separator = ','): string
     {
         return join($separator, $data);
     }
@@ -45,13 +45,9 @@ class ArrayToString
      * @param array $data The input array.
      * @return string The URL-friendly slug.
      */
-<<<<<<< HEAD
-    public static function arrayToSlug(array $data): string
-=======
     public function arrayToSlug(array $data): string
->>>>>>> 145a7cd92f06365c9f0ca190efdc6e1766c29364
     {
-        return static::arrayToText($data, '-');
+        return $this->arrayToText($data, '-');
     }
 
     /**
@@ -60,7 +56,7 @@ class ArrayToString
      * @param array|string $data The input array or JSON string.
      * @return string The key-value pair string representation.
      */
-    public static function arrayToTextKeyValue($data): string
+    public function arrayToTextKeyValue($data): string
     {
         if (is_string($data)) {
             $data = json_decode($data, true);
